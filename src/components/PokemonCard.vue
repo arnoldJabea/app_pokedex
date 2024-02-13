@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     imageUrl() {
-      return `src/data/images/${this.name.toLowerCase()}.png`;
+      return require(`@/assets/images/${this.name.toLowerCase()}.png`);
     },
   },
 };

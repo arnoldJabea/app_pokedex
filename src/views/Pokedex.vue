@@ -1,30 +1,4 @@
 <template>
-  <div id="app">
-    <!-- Logo -->
-    <img v-bind:src="logoSrc" v-bind:alt="logoAlt" id="logo" />
-
-    <!-- Options de recherche -->
-    <div id="search-bar">
-      <SearchOption
-        label="Nom du pokémon :"
-        type="text"
-        v-model="name"
-        placeholder="Entrez un nom"
-      />
-      <SearchOption
-        label="Rareté du pokémon :"
-        type="select"
-        v-model="rarity"
-        :options="['', 'Common', 'Uncommon', 'Rare', 'Rare Holo']"
-      />
-      <SearchOption
-        label="Pouvoir du pokémon :"
-        type="select"
-        v-model="power"
-        :options="['', 'Fire', 'Water', 'Grass', 'Lightning', 'Psychic', 'Fighting', 'Colorless']"
-      />
-    </div>
-
     <!-- Cartes des pokémons -->
     <transition-group name="fade">
       <div v-for="pokemon in filteredPokemons" :key="pokemon.id">
@@ -42,19 +16,17 @@
       <span>{{ page }} / {{ maxPage }}</span>
       <i class="fas fa-angle-right" @click="nextPage"></i>
     </div>
-  </div>
 </template>
 
 <script>
 import PokemonCard from "../components/PokemonCard.vue";
-import SearchOption from "../components/SearchOption.vue";
+// import SearchOption from "../components/SearchOption.vue";
 import data from "../data/json/pokemon.json";
 
 export default {
   name: "PokedexView",
   components: {
     PokemonCard,
-    SearchOption,
   },
   data() {
     return {
